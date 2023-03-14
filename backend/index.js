@@ -7,10 +7,15 @@ dotenv.config({ path: './config.env' });
 const server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
+    // cors: {
+    //   origin: [process.env.FRONTEND_URL | 'https://xo-mutiplayer.vercel.app'],
+    //   methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTION"],
+    //   allowedHeaders: ["*"],
+    // }
     cors: {
-      origin: [process.env.FRONTEND_URL],
-      methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTION"],
-      allowedHeaders: ["*"],
+        origin: process.env.FRONTEND_URL | 'https://xo-mutiplayer.vercel.app',
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
     }
   })
 
