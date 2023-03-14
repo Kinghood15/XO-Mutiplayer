@@ -11,6 +11,7 @@ const io = require('socket.io')(server, {
       origin: [process.env.FRONTEND_URL],
       methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTION"],
       allowedHeaders: ["*"],
+      credentials: true
     }
   })
 
