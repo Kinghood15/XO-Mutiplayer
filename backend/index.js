@@ -7,8 +7,12 @@ dotenv.config({ path: './config.env' });
 const server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
-    cors: cors()
-})
+    cors: {
+      origin: [process.env.FRONTEND_URL],
+      methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTION"],
+      allowedHeaders: ["*"],
+    }
+  })
 
 console.log("origin: process.env.FRONTEND_URL",process.env.FRONTEND_URL)
 
