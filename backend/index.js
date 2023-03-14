@@ -1,6 +1,6 @@
 const app = require('express')();
 const dotenv = require('dotenv');
-
+var cors = require('cors');
 dotenv.config({ path: './config.env' });
 
 const server = require('http').createServer(app);
@@ -168,7 +168,7 @@ io.on('connection', (socket)=>{
 
 })
 
-
+app.use(cors())
 
 app.get('/', (req, res)=>{
     res.send('Server is running');
