@@ -1,14 +1,13 @@
 const app = require('express')();
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config({ path: './config.env' });
 
 const server = require('http').createServer(app);
 
 const io = require('socket.io')(server, {
-    cors: {
-        origin: process.env.FRONTEND_URL
-      }
+    cors: cors()
 })
 
 console.log("origin: process.env.FRONTEND_URL",process.env.FRONTEND_URL)
