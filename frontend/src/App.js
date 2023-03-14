@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import io from 'socket.io-client';
 
 // const socket = io.connect('http://localhost:5000/');
+console.log("process.env.REACT_APP_SOCKET_SERVER_URL",process.env.REACT_APP_SOCKET_SERVER_URL)
 const socket = io.connect(process.env.REACT_APP_SOCKET_SERVER_URL);
 console.log("socket",socket)
 
