@@ -6,13 +6,8 @@ dotenv.config({ path: './config.env' });
 
 const server = require('http').createServer(app);
 
-const io = require('socket.io')(server, {
-    cors: {
-        origin: process.env.FRONTEND_URL | 'https://xo-mutiplayer.vercel.app',
-        credentials: true
-    }
-})
-
+const io = require('socket.io')(server)
+io.origins(process.env.FRONTEND_URL);
 console.log("origin: process.env.FRONTEND_URL",process.env.FRONTEND_URL)
 
 const {
