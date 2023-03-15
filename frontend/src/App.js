@@ -14,7 +14,6 @@ const socket = io(process.env.REACT_APP_SOCKET_SERVER_URL, {
   extraHeaders: {
     "Access-Control-Allow-Origin": process.env.FRONTEND_URL | 'https://xo-mutiplayer.vercel.app/',
     "Access-Control-Allow-Credentials": true,
-    "Accept":"*"
   }
 });
 
