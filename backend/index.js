@@ -21,6 +21,8 @@ app.use(cors({
     origin: process.env.FRONTEND_URL,
     credentials: true
 }));
+
+app.options('*', cors());
 io.origins((origin, callback) => {
     if (origin !== process.env.FRONTEND_URL) {
         return callback('Invalid origin', false);
